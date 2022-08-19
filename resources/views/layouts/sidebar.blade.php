@@ -17,6 +17,8 @@
                     </a>
                 </li>
 
+
+
                 <li class="menu-title" data-key="t-menu">@lang('translation.tenantsCategory')</li>
 
                 <li>
@@ -47,9 +49,10 @@
                         <span data-key="t-dashboard">@lang('translation.tenants')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="{{url('tenants')}}" data-key="t-level-1-1">@lang('translation.tenantsList')</a></li>
+                        <li><a href="{{route('redirect')}}" data-key="t-level-1-1">redirect</a></li>
                     </ul>
                 </li>
+
 
             </ul>
 

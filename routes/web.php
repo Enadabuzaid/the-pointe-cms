@@ -20,7 +20,13 @@ Auth::routes();
 //        return view('tenantsCategory.index');
 //    });
 //});;
+//-----------------------------
 
+Route::prefix('admin')->group(function () {
+    Route::get('redirect','App\Http\Controllers\RedirectController@index')->name('redirect');
+});
+
+// ------------------------
 Route::group(['namespace' => 'App\Http\Controllers\Tenants'], function () {
     Route::resource('tenants-category', 'TenantsCategoryController');
 });

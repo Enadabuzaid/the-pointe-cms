@@ -17,6 +17,8 @@
                     </a>
                 </li>
 
+
+
                 <li class="menu-title" data-key="t-menu"><?php echo app('translator')->get('translation.tenantsCategory'); ?></li>
 
                 <li>
@@ -47,9 +49,10 @@
                         <span data-key="t-dashboard"><?php echo app('translator')->get('translation.tenants'); ?></span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="<?php echo e(url('tenants')); ?>" data-key="t-level-1-1"><?php echo app('translator')->get('translation.tenantsList'); ?></a></li>
+                        <li><a href="<?php echo e(route('redirect')); ?>" data-key="t-level-1-1">redirect</a></li>
                     </ul>
                 </li>
+
 
             </ul>
 

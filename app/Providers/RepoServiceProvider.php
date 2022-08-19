@@ -17,9 +17,15 @@ class RepoServiceProvider extends ServiceProvider
             'App\Repository\TenantsCategoryRepositoryInterface',
             'App\Repository\TenantsCategoryRepository');
 
+
         $this->app->bind(
             'App\Repository\TenantsRepositoryInterface',
             'App\Repository\TenantsRepository');
+
+        $this->app->bind(
+            'App\Repository\RedirectRepositoryInterface',
+            'App\Repository\RedirectRepository');
+
     }
 
     /**
