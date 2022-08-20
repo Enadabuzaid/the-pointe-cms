@@ -43,14 +43,11 @@
                     </ul>
                 </li>
 
+                <li class="menu-title" data-key="t-menu">SEO</li>
+
+
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i data-feather="shopping-bag"></i>
-                        <span data-key="t-dashboard"><?php echo app('translator')->get('translation.tenants'); ?></span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="<?php echo e(route('redirect')); ?>" data-key="t-level-1-1">redirect</a></li>
-                    </ul>
+                    <li><a href="<?php echo e(route('redirect')); ?>" data-key="t-level-1-1">redirect</a></li>
                 </li>
 
 

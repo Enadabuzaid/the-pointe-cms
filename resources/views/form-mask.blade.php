@@ -57,6 +57,8 @@
                                     <input type="text" class="form-control" id="currency-mask">
                                     <div class="text-muted">currency input</div>
                                 </div>
+
+
                             </div>
                         </div>
                         <!-- end col -->

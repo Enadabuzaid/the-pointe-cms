@@ -24,6 +24,10 @@ Auth::routes();
 
 Route::prefix('admin')->group(function () {
     Route::get('redirect','App\Http\Controllers\RedirectController@index')->name('redirect');
+    Route::POST('redirect/store','App\Http\Controllers\RedirectController@store')->name('redirect.store');
+    Route::DELETE('redirect/destroy','App\Http\Controllers\RedirectController@destroy')->name('redirect.destroy');
+    Route::PUT('redirect/switch-status','App\Http\Controllers\RedirectController@switchStatus')->name('redirect.switch');
+
 });
 
 // ------------------------
