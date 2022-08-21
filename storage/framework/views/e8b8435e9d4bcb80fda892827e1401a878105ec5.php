@@ -108,6 +108,9 @@
                                     <i data-feather="refresh-ccw"></i>
                                 </a>
 
+                                <a title="Edit" type="button" class="text-primary" data-bs-toggle="modal" data-bs-target="#edit<?php echo e($redirect->id); ?>" data-bs-whatever="@mdo">
+                                    <i data-feather="edit"></i>
+                                </a>
 
                             </td>
                         </tr>
@@ -178,6 +181,61 @@
                             </div>
                         </div>
 
+                        <div class="modal fade" id="edit<?php echo e($redirect->id); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form action="<?php echo e(route('redirect.update')); ?>" method="post" id="editForm">
+                                    <?php echo csrf_field(); ?>
+                                    <?php echo method_field('PUT'); ?>
+                                    <input type="hidden" class="form-control" name="id" value="<?php echo e($redirect->id); ?>" id="recipient-name">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="myModalLabel">Edit Link</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="example-text-input" class="form-label">Link To <span class="text-danger">*</span></label>
+                                                <input class="form-control" value="<?php echo e($redirect->url_from); ?>" name="from_link" type="url" placeholder="redirect from" id="example-text-input">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="example-text-input" class="form-label">Link From <span class="text-danger">*</span></label>
+                                                <input class="form-control" value="<?php echo e($redirect->url_to); ?>" name="to_link" type="url" placeholder="redirect to" id="example-text-input">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Redirect Type <span class="text-danger">*</span></label>
+                                                <select class="form-control" data-trigger name="type_link"
+                                                        id="choices-single-default"
+                                                        placeholder="Enter redirect type">
+                                                    <option value="<?php echo e($redirect->type); ?>"><?php echo e($redirect->type); ?></option>
+                                                    <option value="301">301</option>
+                                                    <option value="302">302</option>
+                                                    <option value="307">307</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="example-text-input">Status <span class="text-danger">*</span></label>
+                                                <select class="form-select" name="status">
+                                                    <?php if($redirect->status): ?>
+                                                        <option value="1">Active</option>
+                                                        <option value="0">Deactivate</option>
+                                                    <?php else: ?>
+                                                        <option value="0">Deactivate</option>
+                                                        <option value="1">Active</option>
+                                                    <?php endif; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" form="editForm" class="btn btn-success waves-effect waves-light">Save changes</button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </form>
+                            </div>
+                        </div>
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
@@ -239,11 +297,25 @@
         </script>
     <?php endif; ?>
 
+    <?php if(Session::has('update')): ?>
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'warning',
+                title: '<?php echo e(Session::get('update')); ?>',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        </script>
+    <?php endif; ?>
+
     <?php echo e(Session::forget('success')); ?>
 
     <?php echo e(Session::forget('delete')); ?>
 
     <?php echo e(Session::forget('switch')); ?>
+
+    <?php echo e(Session::forget('update')); ?>
 
 
 

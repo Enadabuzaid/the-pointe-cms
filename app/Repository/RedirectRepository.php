@@ -41,6 +41,25 @@ class RedirectRepository implements RedirectRepositoryInterface
         return redirect()->back();
     }
 
+    public function update($request){
+        $validated = $request->validate([
+            'from_link' => 'required',
+            'to_link' => 'required',
+        ]);
+
+        $redirect = Redirect::find($request->id);
+
+        $redirect->update([
+            "url_from" => $request->from_link,
+            "url_to" => $request->to_link,
+            "type" => $request->type_link,
+            "status" => $request->status
+        ]);
+
+        session()->put('update','Redirect Link Successfully updated.');
+        return redirect()->back();
+    }
+
 
 
 

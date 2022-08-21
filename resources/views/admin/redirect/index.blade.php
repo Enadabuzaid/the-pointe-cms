@@ -109,6 +109,9 @@
                                     <i data-feather="refresh-ccw"></i>
                                 </a>
 
+                                <a title="Edit" type="button" class="text-primary" data-bs-toggle="modal" data-bs-target="#edit{{$redirect->id}}" data-bs-whatever="@mdo">
+                                    <i data-feather="edit"></i>
+                                </a>
 
                             </td>
                         </tr>
@@ -179,6 +182,61 @@
                             </div>
                         </div>
 
+                        <div class="modal fade" id="edit{{$redirect->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form action="{{route('redirect.update')}}" method="post" id="editForm">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" class="form-control" name="id" value="{{$redirect->id}}" id="recipient-name">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="myModalLabel">Edit Link</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="example-text-input" class="form-label">Link To <span class="text-danger">*</span></label>
+                                                <input class="form-control" value="{{$redirect->url_from}}" name="from_link" type="url" placeholder="redirect from" id="example-text-input">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="example-text-input" class="form-label">Link From <span class="text-danger">*</span></label>
+                                                <input class="form-control" value="{{$redirect->url_to}}" name="to_link" type="url" placeholder="redirect to" id="example-text-input">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="choices-single-default" class="form-label font-size-13 text-muted">Redirect Type <span class="text-danger">*</span></label>
+                                                <select class="form-control" data-trigger name="type_link"
+                                                        id="choices-single-default"
+                                                        placeholder="Enter redirect type">
+                                                    <option value="{{$redirect->type}}">{{$redirect->type}}</option>
+                                                    <option value="301">301</option>
+                                                    <option value="302">302</option>
+                                                    <option value="307">307</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="example-text-input">Status <span class="text-danger">*</span></label>
+                                                <select class="form-select" name="status">
+                                                    @if($redirect->status)
+                                                        <option value="1">Active</option>
+                                                        <option value="0">Deactivate</option>
+                                                    @else
+                                                        <option value="0">Deactivate</option>
+                                                        <option value="1">Active</option>
+                                                    @endif
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" form="editForm" class="btn btn-success waves-effect waves-light">Save changes</button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </form>
+                            </div>
+                        </div>
 
                         @endforeach
                         </tbody>
@@ -240,9 +298,22 @@
         </script>
     @endif
 
+    @if(Session::has('update'))
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'warning',
+                title: '{{Session::get('update')}}',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        </script>
+    @endif
+
     {{Session::forget('success')}}
     {{Session::forget('delete')}}
     {{Session::forget('switch')}}
+    {{Session::forget('update')}}
 
 
 @endsection

@@ -12,4 +12,7 @@ interface RedirectRepositoryInterface
 
     public function switch($request);
 
+    public function update($request);
+
+
 }

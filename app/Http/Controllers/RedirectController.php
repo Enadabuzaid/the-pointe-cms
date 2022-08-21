@@ -33,5 +33,9 @@ class RedirectController extends Controller
         return $this->redirects->switch($request);
     }
 
+    public function update(Request $request){
+        return $this->redirects->update($request);
+    }
+
 
 }
