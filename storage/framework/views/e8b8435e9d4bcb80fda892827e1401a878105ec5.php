@@ -31,6 +31,8 @@
                             <th>From</th>
                             <th>To</th>
                             <th>Type</th>
+                            <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
 
@@ -41,6 +43,10 @@
                             <td><?php echo e($redirect->url_from); ?></td>
                             <td><?php echo e($redirect->url_to); ?></td>
                             <td><?php echo e($redirect->type); ?></td>
+                            <td>Active</td>
+                            <td>
+
+                            </td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
