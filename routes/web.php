@@ -30,6 +30,28 @@ Route::prefix('admin')->group(function () {
     Route::PUT('redirect/update','App\Http\Controllers\RedirectController@update')->name('redirect.update');
 
 
+
+    Route::get('menu','App\Http\Controllers\Menus\MenuController@index')->name('menu');
+    Route::POST('menu/store','App\Http\Controllers\Menus\MenuController@store')->name('menu.store');
+    Route::DELETE('menu/destroy','App\Http\Controllers\Menus\MenuController@destroy')->name('menu.destroy');
+    Route::PUT('menu/switch-status','App\Http\Controllers\Menus\MenuController@switchStatus')->name('menu.switch');
+    Route::PUT('menu/update','App\Http\Controllers\Menus\MenuController@update')->name('menu.update');
+
+
+
+
+    Route::get('menu/menuitem/{id}','App\Http\Controllers\Menus\MenuItemController@index')->name('menuitem');
+    Route::POST('menu/menuitem/store','App\Http\Controllers\Menus\MenuItemController@store')->name('menuitem.store');
+    Route::DELETE('menu/menuitem/destroy','App\Http\Controllers\Menus\MenuItemController@destroy')->name('menuitem.destroy');
+    Route::PUT('menu/menuitem/switch-status','App\Http\Controllers\Menus\MenuItemController@switchStatus')->name('menuitem.switch');
+    Route::PUT('menu/menuitem/update','App\Http\Controllers\Menus\MenuItemController@update')->name('menuitem.update');
+
+
+
+
+
+
+
 });
 
 // ------------------------
