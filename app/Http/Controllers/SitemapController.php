@@ -13,7 +13,7 @@ class SitemapController extends Controller
     }
 
     public function generate(){
-        SitemapGenerator::create('https://edc.ae/')->writeToFile('sitemap.xml');
+        SitemapGenerator::create(env('APP_URL'))->writeToFile('sitemap.xml');
         return redirect()->back();
     }
 
