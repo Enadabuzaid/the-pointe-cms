@@ -23,52 +23,59 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="menu"></i>
-                        <span data-key="t-dashboard">Menu </span>
+                        <span data-key="t-menu">Menu </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><li><a href="<?php echo e(route('menu')); ?>" data-key="t-level-1-1">main menu</a></li></li>
+                        <li><li><a href="<?php echo e(route('menu')); ?>" data-key="t-menu">main menu</a></li></li>
                     </ul>
                 </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 <li class="menu-title" data-key="t-menu">SEO</li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i data-feather="link"></i>
-                        <span data-key="t-dashboard">links </span>
+                        <span data-key="t-menu">redirect </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><li><a href="<?php echo e(route('redirect')); ?>" data-key="t-level-1-1">redirect</a></li></li>
+                        <li><li><a href="<?php echo e(route('redirect')); ?>" data-key="t-menu">redirect list </a></li></li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="link-2"></i>
+                        <span data-key="t-menu">sitemap </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><li><a href="<?php echo e(route('sitemap.index')); ?>" data-key="t-menu">sitemap</a></li></li>
+                    </ul>
+                </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </ul>
 

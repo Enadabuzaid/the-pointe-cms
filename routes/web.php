@@ -34,6 +34,12 @@ Route::prefix('admin')->group(function () {
     Route::PUT('redirect/switch-status','App\Http\Controllers\RedirectController@switchStatus')->name('redirect.switch');
     Route::PUT('redirect/update','App\Http\Controllers\RedirectController@update')->name('redirect.update');
 
+//    ******  SITEMAP START ROUTES  *******
+    Route::get('/sitemap', [App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.index');
+    Route::get('/sitemap/generate', [App\Http\Controllers\SitemapController::class, 'generate'])->name('sitemap.generate');
+
+//    ******* SITEMAP END ROUTES
+
 
 
     Route::get('menu','App\Http\Controllers\Menus\MenuController@index')->name('menu');
