@@ -47,7 +47,7 @@
                         <i data-feather="link-2"></i>
                         <span data-key="t-menu">sitemap </span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="true">
+                    <ul class="sub-menu" aria-expanded="true">-
                         <li><li><a href="{{route('sitemap.index')}}" data-key="t-menu">sitemap</a></li></li>
                     </ul>
                 </li>
