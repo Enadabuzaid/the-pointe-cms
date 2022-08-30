@@ -48,9 +48,18 @@ Route::prefix('admin')->group(function () {
 
 
 
+    Route::get('slider','App\Http\Controllers\Sliders\SliderController@index')->name('slider');
+    Route::POST('slider/store','App\Http\Controllers\Sliders\SliderController@store')->name('slider.store');
+    Route::DELETE('slider/destroy','App\Http\Controllers\Sliders\SliderController@destroy')->name('slider.destroy');
+    Route::PUT('slider/switch-status','App\Http\Controllers\Sliders\SliderController@switchStatus')->name('slider.switch');
+    Route::PUT('slider/update','App\Http\Controllers\Sliders\SliderController@update')->name('slider.update');
 
 
-
+    Route::get('slider/slide/{id}','App\Http\Controllers\Sliders\SlideController@index')->name('slide');
+    Route::POST('slider/slide/store','App\Http\Controllers\Sliders\SlideController@store')->name('slide.store');
+    Route::DELETE('slider/slide/destroy','App\Http\Controllers\Sliders\SlideController@destroy')->name('slide.destroy');
+    Route::PUT('slider/slide/switch-status','App\Http\Controllers\Sliders\SlideController@switchStatus')->name('slide.switch');
+    Route::PUT('slider/slide/update','App\Http\Controllers\Sliders\SlideController@update')->name('slide.update');
 
 });
 

@@ -27,13 +27,22 @@ class RepoServiceProvider extends ServiceProvider
             'App\Repository\RedirectRepository');
 
 
-            $this->app->bind(
-                'App\Repository\MenuRepositoryInterface',
-                'App\Repository\MenuRepository');
+        $this->app->bind(
+            'App\Repository\MenuRepositoryInterface',
+            'App\Repository\MenuRepository');
 
-                $this->app->bind(
-                    'App\Repository\MenuItemRepositoryInterface',
-                    'App\Repository\MenuItemRepository');
+        $this->app->bind(
+            'App\Repository\MenuItemRepositoryInterface',
+            'App\Repository\MenuItemRepository');
+
+        $this->app->bind(
+            'App\Repository\SliderRepositoryInterface',
+            'App\Repository\SliderRepository');
+
+        $this->app->bind(
+            'App\Repository\SlideRepositoryInterface',
+            'App\Repository\SlideRepository');
+
 
     }
 
