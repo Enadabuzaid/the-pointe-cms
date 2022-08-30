@@ -7,10 +7,10 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" data-key="t-menu">@lang('translation.Menu')</li>
+                <li class="menu-title" data-key="t-menu">main</li>
 
                 <li>
-                    <a href="index">
+                    <a href="{{url('/admin')}}">
                         <i data-feather="home"></i>
                         <span class="badge rounded-pill bg-soft-success text-success float-end">9+</span>
                         <span data-key="t-dashboard">@lang('translation.Dashboards')</span>
@@ -18,19 +18,52 @@
                 </li>
 
 
-
-                <li class="menu-title" data-key="t-menu">@lang('translation.tenantsCategory')</li>
+                <li class="menu-title" data-key="t-menu">@lang('translation.Menu')</li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i data-feather="shopping-bag"></i>
-                        <span data-key="t-dashboard">@lang('translation.tenantsCategory')</span>
+                        <i data-feather="menu"></i>
+                        <span data-key="t-menu">Menu </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
+                        <li><li><a href="{{route('menu')}}" data-key="t-menu">main menu</a></li></li>
+                    </ul>
+                </li>
+
+                <li class="menu-title" data-key="t-menu">SEO</li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="link"></i>
+                        <span data-key="t-menu">redirect </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><li><a href="{{route('redirect')}}" data-key="t-menu">redirect list </a></li></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="link-2"></i>
+                        <span data-key="t-menu">sitemap </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><li><a href="{{route('sitemap.index')}}" data-key="t-menu">sitemap</a></li></li>
+                    </ul>
+                </li>
+
+{{--                <li class="menu-title" data-key="t-menu">@lang('translation.tenantsCategory')</li>--}}
+
+{{--                <li>--}}
+{{--                    <a href="javascript: void(0);" class="has-arrow">--}}
+{{--                        <i data-feather="shopping-bag"></i>--}}
+{{--                        <span data-key="t-dashboard">@lang('translation.tenantsCategory')</span>--}}
+{{--                    </a>--}}
+{{--                    <ul class="sub-menu" aria-expanded="true">--}}
 {{--                        <li><a href="{{url('tenants-category')}}" data-key="t-level-1-1">@lang('translation.tenantsCategory')</a></li>--}}
 
-                        <li><a href="{{url('tenants-sub-category')}}" data-key="t-level-1-1">@lang('translation.tenantsCategory')</a></li>
-                        {{--                        <li>--}}
+{{--                        <li><a href="{{url('tenants-sub-category')}}" data-key="t-level-1-1">@lang('translation.tenantsCategory')</a></li>--}}
+{{--                                                <li>--}}
 {{--                        <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">@lang('translation.tenantsCategory')</a>--}}
 {{--                            <ul class="sub-menu" aria-expanded="true">--}}
 {{--                                @if(isset($tenants_category))--}}
@@ -40,15 +73,8 @@
 {{--                                @endif--}}
 {{--                            </ul>--}}
 {{--                        </li>--}}
-                    </ul>
-                </li>
-
-                <li class="menu-title" data-key="t-menu">SEO</li>
-
-
-                <li>
-                    <li><a href="{{route('redirect')}}" data-key="t-level-1-1">redirect</a></li>
-                </li>
+{{--                    </ul>--}}
+{{--                </li>--}}
 
 
             </ul>

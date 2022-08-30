@@ -5,7 +5,11 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
+<<<<<<< HEAD
         "php": "^7.2|^8.1",
+=======
+        "php": "7.4|^8.1.8",
+>>>>>>> d80a289ab2555cd08555421565b2b7c8c901bc7a
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^9.0",
@@ -13,7 +17,11 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "livewire/livewire": "^2.10",
+<<<<<<< HEAD
         "spatie/laravel-medialibrary": "^9.0.0"
+=======
+        "spatie/laravel-sitemap": "^6.2"
+>>>>>>> d80a289ab2555cd08555421565b2b7c8c901bc7a
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",

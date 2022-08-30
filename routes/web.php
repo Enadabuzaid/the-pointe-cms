@@ -23,11 +23,22 @@ Auth::routes();
 //-----------------------------
 
 Route::prefix('admin')->group(function () {
+
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.index');
+
+
+
     Route::get('redirect','App\Http\Controllers\RedirectController@index')->name('redirect');
     Route::POST('redirect/store','App\Http\Controllers\RedirectController@store')->name('redirect.store');
     Route::DELETE('redirect/destroy','App\Http\Controllers\RedirectController@destroy')->name('redirect.destroy');
     Route::PUT('redirect/switch-status','App\Http\Controllers\RedirectController@switchStatus')->name('redirect.switch');
     Route::PUT('redirect/update','App\Http\Controllers\RedirectController@update')->name('redirect.update');
+
+//    ******  SITEMAP START ROUTES  *******
+    Route::get('/sitemap', [App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap.index');
+    Route::get('/sitemap/generate', [App\Http\Controllers\SitemapController::class, 'generate'])->name('sitemap.generate');
+
+//    ******* SITEMAP END ROUTES
 
 
 
@@ -80,13 +91,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Tenants'], function () {
 
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
 Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
 
-Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+//Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 
 

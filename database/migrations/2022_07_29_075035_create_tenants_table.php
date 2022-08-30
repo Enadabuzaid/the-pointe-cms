@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('seo_id');
             $table->unsignedBigInteger('tenant_category_id');
 
-            $table->foreign('seo_id')->references('seo_id')->on('seo_metas')
+            $table->foreign('seo_id')->references('seo_id')->on( 'seo_metas')
 
                 ->onDelete('cascade');
 
